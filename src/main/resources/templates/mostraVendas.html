@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Mostra vendas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+	crossorigin="anonymous" />
+
+</head>
+<body class="container" style="background-color: white;">
+
+	<div>
+		<table class="table">
+		<tr th:if="${vendas.empty}">
+			<td colspan="2">Nenhuma venda encontrada</td>
+		</tr>
+		<tr th:each="venda: ${vendas}">
+			<td><span th:text="${venda.id}"> Id </span></td>
+			<td><span th:text="${venda.codigoProduto}"> Codigo do produto</span></td>
+			<td><span th:text="${venda.codigoCliente}"> Codigo do Cliente</span></td>
+		
+		</tr>
+		</table>
+	</div>
+
+
+
+</body>
+</html>
