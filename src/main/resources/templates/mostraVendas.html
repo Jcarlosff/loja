@@ -15,22 +15,26 @@
 
 	<div>
 		<table class="table">
-		<tr th:if="${vendas.empty}">
-			<td colspan="2">Nenhuma venda encontrada</td>
-		</tr>
-		<tr th:each="venda: ${vendas}">
-			<td><span th:text="${venda.id}"> Id </span></td>
-			<td><span th:text="${venda.codigoProduto}"> Codigo do produto</span></td>
-			<td><span th:text="${venda.codigoCliente}"> Codigo do Cliente</span></td>
-		
-		</tr>
+			<tr th:if="${vendas.empty}">
+				<td colspan="2">Nenhuma venda encontrada</td>
+			</tr>
+			<tr th:each="venda: ${vendas}">
+				<td><span th:text="${venda.id}"> Id </span></td>
+				<td><span th:text="${venda.codigoProduto}"> Codigo do
+						produto</span></td>
+				<td><span th:text="${venda.codigoCliente}"> Codigo do
+						Cliente</span></td>
+
+			</tr>
 		</table>
+
 		
 <div class="form-group">
 					<button type="submit"  th:href="@{/venda/relario//////}" value="EXPORTAR" class="btn"
 						style="background-color: #F5A623; color: white; font-style: bold;">Exportar relatorio</button>
 
 				</div>
+
 	</div>
 
 

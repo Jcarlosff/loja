@@ -8,14 +8,14 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
 
 @javax.persistence.Entity
-public class Venda {
+public class Venda extends Object {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
 	private int codigoProduto;
-	
+
 	@NotNull
 	private int codigoCliente;
 
@@ -42,5 +42,11 @@ public class Venda {
 	public void setCodigoCliente(int codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Venda [id=" + id + ", codigoProduto=" + codigoProduto + ", codigoCliente=" + codigoCliente + "]";
 	}
+
+	
+}
