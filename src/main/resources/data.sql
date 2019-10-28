@@ -4,3 +4,6 @@ insert into cliente values(3, '12312312312', '08/08/1982', 'Maria Fernanda', 'Fe
 
 insert into produto values (1 ,  '0123', 'shampoo', 12.0);
 insert into produto values (4 ,  '0124', 'CREME', 15.0);
+
+
+REGISTRAR DUAS VENDAS OU MAIS
