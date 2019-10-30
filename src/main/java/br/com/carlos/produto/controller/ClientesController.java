@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,22 +17,16 @@ import br.com.carlos.produto.repository.ClienteRepository;
 
 @Controller
 public class ClientesController {
-
 	@Autowired
-	private ClienteRepository clientes;
+	private ClienteRepository clienter;
 
 	@RequestMapping("/clientes")
-	public ModelAndView listar() {
+	public String listar(Model model) {
 
-		List<Cliente> todosClientes = (List<Cliente>) clientes.findAll();
+		List<Cliente> todosClientes = clienter.findAll();
+		model.addAttribute("clientes", todosClientes);
 
-		ModelAndView mv = new ModelAndView("ListaClientes");
-
-		mv.addObject("clientes", todosClientes);
-
-		mv.addObject(new Cliente());
-
-		return mv;
+		return "clientes";
 	}
 
 	@RequestMapping(value = "/clientes", method = RequestMethod.POST)
@@ -41,7 +36,7 @@ public class ClientesController {
 			return "redirect:/clientes";
 		}
 
-		this.clientes.save(cliente);
+		this.clienter.save(cliente);
 
 		return "redirect:/clientes";
 	}
@@ -49,7 +44,7 @@ public class ClientesController {
 	@RequestMapping("/excluicliente/{id}")
 	public String excluir(@PathVariable Long id) {
 
-		this.clientes.delete(id);
+		this.clienter.delete(id);
 
 		return "redirect:/clientes";
 	}
@@ -64,16 +59,15 @@ public class ClientesController {
 		return mv;
 	}
 
-	@RequestMapping("/alteracliente")
+	@RequestMapping("/altercliente")
 	public String editaralterar(@Validated Cliente cliente) {
 
-		Cliente clientenovo = cliente;
+		Cliente clienteNovo = cliente;
 
-		this.clientes.delete(cliente.getId());
+		this.clienter.delete(cliente.getId());
 
-		this.clientes.save(clientenovo);
+		this.clienter.save(clienteNovo);
 
 		return "redirect:/clientes";
 	}
-
 }

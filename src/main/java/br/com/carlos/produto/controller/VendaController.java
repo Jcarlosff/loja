@@ -23,8 +23,7 @@ public class VendaController {
 	@Autowired
 	private VendeRepository vender;
 
-	// @Autowired
-	// private Vendas vendasservico;
+	
 
 	@RequestMapping("/venda")
 	public String venda(Model model) {

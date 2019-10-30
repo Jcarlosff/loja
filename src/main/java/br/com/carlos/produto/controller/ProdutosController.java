@@ -60,7 +60,7 @@ public class ProdutosController {
 		return mv;
 	}
 	
-	@RequestMapping("/alteracidade")
+	@RequestMapping("/alterproduto")
 	public String editaralterar(@Validated Produto produto) {
 		
 		Produto produtonovo = produto;
