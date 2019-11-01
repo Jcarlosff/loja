@@ -33,7 +33,7 @@ public class RelatorioController {
 
 		escreverArquivoDisco(vendasList);
 
-		// lerArquivoDisco(vendasList);
+		lerArquivoDisco(vendasList);
 
 		return vendasList;
 
