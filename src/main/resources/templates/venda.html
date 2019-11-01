@@ -1,65 +1,84 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 <head>
-<title> Cadastramento venda</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+<!-- Bootstrap CSS -->
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
-	crossorigin="anonymous"/>
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous" />
+
 
 </head>
+
+<div th:replace="index :: header"></div>
+
+
 <body class="container" style="background-color: white;">
 
-	<div>
 
+
+	<div>
 
 		<form action="#" th:action="@{/venda}" th:object="${venda}"
 			method="post">
 			<div class="container">
-				
-				<h1 class="entry-title">Venda</h1>
-				<div>
-					Campos marcados com <span style="color: red;">*</span> são
-					requeridos
-				</div>
-				<div class="form-group">
-					<label for="nomeid">Codigo Produto <span style="color: red;">*</span></label>
-					<input type="text" th:field="*{codigoProduto}" class="form-control"
-						id="nomeid"/>
+
+
+				<h4 class="entry-title">Venda</h4>
+
+				<div class="profile-info-value">
+					<?php
+    include "conexao.php";
+    include "executaSQL.php";
+    
+    $link=conectar(); 
+    $busca_query = mysql_query("SELECT cod_empresa,razao_social FROM tbl_empresa")or die(mysql_error());
+?>
+					<select name="empresa_destino" id="form-field-1"
+						class="col-xs-11 col-sm-6 col-md-8">
+						<option value="" selected disabled="disabled" hidden>Selecione
+							a Empresa</option>
+
+						<?php while ($dados = mysql_fetch_array($busca_query)) { ?>
+						<option value="<?php echo $dados['cod_empresa']; ?>"><?php echo $dados['razao_social']; ?></option>
+						<?php } ?>
+					</select>
 				</div>
 
-				<div class="form-group">
-					<label for="matid">Codigo Cliente <span
-						style="color: red;">*</span></label> <input type="text"
-						th:field="*{codigoCliente}" class="form-control"  id="matid"/>
-				</div>
 
-				<!-- <div class="form-group">
-					<label for="codid">Código unidade(Ex: 5142) <span
-						style="color: red;">*</span></label> <input type="text"
-						th:field="*{unidade}" class="form-control" id="codid" />
-				</div>
-				<div class="form-group">
-					<label for="radioid">Qual o sistema operacional do seu
-						celular? <span style="color: red;">*</span>
-					</label>
-					<div th:each="radioValue: ${plataformas}" id="radioid">
-						<input type="radio" th:field="*{plataforma}"
-							th:value="${radioValue}" /> <label
-							th:for="${#ids.prev('plataforma')}" th:text="${radioValue}"></label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="inputGroupSelect01">Cliente</label>
 					</div>
+					<select class="custom-select" id="inputGroupSelect01">
+						<option selected="selected">Adicionar</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="inputGroupSelect01">Produto</label>
+					</div>
+					<select class="custom-select" id="inputGroupSelect01">
+						<option selected=" ">Adicionar</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
 				</div>
 
 
-				<div class="form-group">
-					<label for="emailid">Email <span style="color: red;">*</span></label>
-					<input type="text" th:field="*{email}" class="form-control"
-						id="emailid" placeholder="@GMAIL.COM"/>
-				</div>
- -->
+
+
+
 				<div class="form-group">
 					<button type="submit" value="CADASTRAR" class="btn"
 						style="background-color: #F5A623; color: white; font-style: bold;">CADASTRAR</button>
@@ -68,8 +87,16 @@
 			</div>
 		</form>
 	</div>
-
-
-
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 </html>

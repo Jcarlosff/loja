@@ -1,6 +1,5 @@
 package br.com.carlos.produto.controller;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -17,65 +16,72 @@ import br.com.carlos.produto.repository.VendeRepository;
 @RestController("/relatorio")
 public class RelatorioController {
 
-	
-
 	@Autowired
 	private VendeRepository vender;
-	
+
 	@GetMapping
 	public List<Venda> relatorio() {
-		
+
 		/**
 		 * Para chamar esse método é o caminho http://localhost:8080/loja/relatorio
 		 */
-		
-		
+
 		List<Venda> vendasList = vender.findAll();
 
-		
-		
 		escreverArquivoDisco(vendasList);
-		
-		lerArquivoDisco();
-		
+
+		// lerArquivoDisco(vendasList);
+
 		return vendasList;
 
 	}
 
-	private void lerArquivoDisco() {
-		//TODO Carlos ler o mesmo arquivo aqui e escrever no system.out.println cada linha
-		//dica é utilizar o FileReader e
-		BufferedReader br = new BufferedReader(null);
-		
-		
-	}
+	/*
+	 * private void lerArquivoDisco(List<Venda> vendasList) { //TODO Carlos ler o
+	 * mesmo arquivo aqui e escrever no system.out.println cada linha //dica é
+	 * utilizar o FileReader e try {
+	 * 
+	 * 
+	 * 
+	 * BufferedReader br = new BufferedReader(new
+	 * FileReader("/home/carlos/Área de Trabalho/Sis/arquivo1.csv"));
+	 * while(br.ready()){ String linha = br.readLine(); System.out.println(linha); }
+	 * br.close();
+	 * 
+	 * } catch (FileNotFoundException e) {
+	 * 
+	 * e.printStackTrace(); } catch (IOException e) {
+	 * 
+	 * e.printStackTrace(); }
+	 * 
+	 * 
+	 * }
+	 */
 
 	private void escreverArquivoDisco(List<Venda> vendasList) {
-		File arquivoSaida = new File("/home/ney/Documentos/desenvolvimento/projetos/estudo_carlos/arquivo1.csv");
-		
-		if(!arquivoSaida.exists()) {
+		File arquivoSaida = new File("/media/carlos/Novo volume/relatorios/arquivo1.csv");
+
+		if (!arquivoSaida.exists()) {
 			try {
 				arquivoSaida.createNewFile();
 				FileWriter fw = new FileWriter(arquivoSaida);
 				BufferedWriter bw = new BufferedWriter(fw);
-				
+
 				for (Venda v : vendasList) {
 					System.out.println(v);
-					
+
 					bw.write(v.toString());
 					bw.newLine();
 				}
-				
+
 				bw.flush();
 				bw.close();
-				
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 
-			
 		}
 	}
-	
+
 }

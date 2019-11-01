@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
 
 @Entity
-public class Cliente {
+public class Cliente extends Object {
 	
 	
 	 @Id

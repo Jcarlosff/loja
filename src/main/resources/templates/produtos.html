@@ -1,32 +1,59 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Cadastramento de venda</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-	integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
-	crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 
+
+<title>Cliente</title>
 </head>
-<body class="container" style="background-color: white;">
 
-	<div>
-		<table class="table">
-		<tr th:if="${produtos.empty}">
-			<td colspan="2">Nenhum produto disponivel!</td>
-		</tr>
-		<tr th:each="produto: ${produtos}">
-			<td><span th:text="${produto.id}"> Id </span></td>
-			<td><span th:text="${produto.nome}"> Nome </span></td>
-			<td><span th:text="${produto.valorProduto}"> Valor </span></td>
-		</tr>
-		</table>
+<body>
+
+	 <div th:replace="index :: header"></div>
+
+     <div class="panel panel-default" style="margin: 60px">
+     
+		<div class="panel-heading">
+			<h1 class="panel-title">Produtos</h1>
+		</div>
+
+		<form class="form-inline" method="POST" th:object="${produto}" th:action="@{/produtos}" style="margin: 20px 0">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Nome" value="nome" th:field="*{nome}" /> 
+				<input type="text" class="form-control" placeholder="codigo" th:field="*{codigo}" /> 
+				<input type="text" class="form-control" placeholder="Valor Produto" th:field="*{valorProduto}" />
+				<button type="submit" class="btn btn-primary">Adicionar</button>
+			</div>
+		</form>
+
+        <div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+					    <th>Nome</th>
+						<th>Codigo</th>
+						<th>Valor Produto</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="produto : ${produtos}">
+					    <td th:text="${produto.nome}"></td>
+						<td th:text="${produto.codigo}"></td>
+						<td th:text="${produto.valorProduto}"></td>
+						<td><a th:href="${'/excluiproduto/' + produto.id}" >Excluir</a></td>
+						<td><a th:href="${'/editaproduto/' + produto}" >Alterar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-
-
-
-</body>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
