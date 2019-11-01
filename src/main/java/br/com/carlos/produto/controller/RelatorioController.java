@@ -1,7 +1,10 @@
 package br.com.carlos.produto.controller;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -36,30 +39,8 @@ public class RelatorioController {
 
 	}
 
-	/*
-	 * private void lerArquivoDisco(List<Venda> vendasList) { //TODO Carlos ler o
-	 * mesmo arquivo aqui e escrever no system.out.println cada linha //dica é
-	 * utilizar o FileReader e try {
-	 * 
-	 * 
-	 * 
-	 * BufferedReader br = new BufferedReader(new
-	 * FileReader("/home/carlos/Área de Trabalho/Sis/arquivo1.csv"));
-	 * while(br.ready()){ String linha = br.readLine(); System.out.println(linha); }
-	 * br.close();
-	 * 
-	 * } catch (FileNotFoundException e) {
-	 * 
-	 * e.printStackTrace(); } catch (IOException e) {
-	 * 
-	 * e.printStackTrace(); }
-	 * 
-	 * 
-	 * }
-	 */
-
 	private void escreverArquivoDisco(List<Venda> vendasList) {
-		File arquivoSaida = new File("/media/carlos/Novo volume/relatorios/arquivo1.csv");
+		File arquivoSaida = new File("/media/carlos/Novo volume/relatorios/arquivo1.txt");
 
 		if (!arquivoSaida.exists()) {
 			try {
@@ -82,6 +63,35 @@ public class RelatorioController {
 			}
 
 		}
+
+	}
+
+	
+
+	private void lerArquivoDisco(List<Venda> vendasList) { 
+		//TODO Carlos ler o	  mesmo arquivo aqui e escrever no system.out.println cada linha 
+		//dica é  utilizar o FileReader e try {
+	
+	  BufferedReader br;
+	try {
+		
+		br = new BufferedReader(new FileReader("/home/carlos/Área de Trabalho/Sis/arquivo1.txt"));
+		
+		 
+		  while(br.ready()){ 
+			String linha = br.readLine(); 
+			System.out.println(linha); }
+		    br.close();
+		   
+		
+	} catch (IOException e) {
+		
+		e.printStackTrace();
+	}
+	 
+	  
+	  
+		
 	}
 
 }
