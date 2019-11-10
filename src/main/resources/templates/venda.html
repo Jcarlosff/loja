@@ -1,12 +1,16 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
 
 
@@ -14,7 +18,7 @@
 
 </head>
 
-   <div th:replace="index :: header"></div>  
+<div th:replace="index :: header"></div>
 
 
 <body class="container" style="background-color: white;">
@@ -23,35 +27,42 @@
 
 	<div>
 
-		<form action="#" th:action="@{/venda}" th:object="${venda}"
-			method="post">
+		<form action="#" th:action="@{/venda}" th:object="${venda}" method="post">
 			<div class="container">
 
 
-				<h4 class="entry-title">Venda</h4> 
-				
-				
-				
+				<h4 class="entry-title">Venda</h4>
+
+
+
+				 
+
+
 
 				<div class="input-group mb-3">
+
+
+
+					
 					<div class="input-group-prepend">
 						<label class="input-group-text" for="inputGroupSelect01">Cliente</label>
 					</div>
+
 					<select class="custom-select" id="inputGroupSelect01">
-						
-						<option selected="selected">Adicionar</option>
-						<option value="1">One</option>
+
+							<option selected="selected">Adicionar</option>
+						<option value="${Cliente}">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
-					</select>
+					</select> 
 				</div>
 
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<label class="input-group-text" for="inputGroupSelect01">Produto</label>
 					</div>
-					<select class="custom-select" id="inputGroupSelect01">
-						<option selected = " ">Adicionar</option>
+					<select class="custom-select" id="inputGroupSelect01"> 
+						<option selected=" ">Adicionar</option>
 						<option value="1">One</option>
 						<option value="2">Two</option>
 						<option value="3">Three</option>
@@ -61,7 +72,7 @@
 
 
 
-	
+
 				<div class="form-group">
 					<button type="submit" value="CADASTRAR" class="btn"
 						style="background-color: #F5A623; color: white; font-style: bold;">CADASTRAR</button>
@@ -69,8 +80,40 @@
 				</div>
 			</div>
 		</form>
+
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Sexo</th>
+						<th>Data de Nascimento</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente : ${clientes}">
+						<td th:text="${cliente.nome}"></td>
+						<td th:text="${cliente.cpf}"></td>
+						<td th:text="${cliente.sexo}"></td>
+						<td th:text="${cliente.dataNascimento}"></td>
+						<td><a th:href="${'/excluicliente/' + cliente.id}">Excluir</a></td>
+						<td><a th:href="${'/editacliente/' + cliente}">Alterar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		
+
+
+
+
 	</div>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+	
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>

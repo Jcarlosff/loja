@@ -6,5 +6,7 @@ import br.com.carlos.produto.model.Venda;
 
 
 public interface VendeRepository extends JpaRepository<Venda, Long>{ 
+	
+
 
 }

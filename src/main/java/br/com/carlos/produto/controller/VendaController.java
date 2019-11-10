@@ -23,8 +23,6 @@ public class VendaController {
 	@Autowired
 	private VendeRepository vender;
 
-	
-
 	@RequestMapping("/venda")
 	public String venda(Model model) {
 		model.addAttribute("venda", new Venda());
@@ -32,9 +30,10 @@ public class VendaController {
 		return "venda";
 	}
 
-	@RequestMapping(path = "/venda",method = RequestMethod.POST)
-	public String gravaVenda(Venda venda, Model model ) {
+	@RequestMapping(path = "/venda", method = RequestMethod.POST)
+	public String gravaVenda(Venda venda, Model model) {
 		vender.save(venda);
+
 		model.addAttribute("vendas", vender.findAll());
 		return "mostraVendas";
 

@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.NumberFormat;
 
 @Entity
-public class Produto {
+public class Produto extends Object{
     
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

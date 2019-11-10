@@ -1,0 +1,60 @@
+[33mcommit 1fad6523485ca3448d96828b4bd162afbc295c6d[m[33m ([m[1;36mHEAD -> [m[1;32morigin/jcf-templates[m[33m)[m
+Author: Jcarlosff <carlossantos.ff@gmail.com>
+Date:   Thu Oct 31 23:52:41 2019 -0300
+
+    feito alteracao nos templates em geral
+
+[33mcommit bbf9774037ec9e66487eaabebfcdad70b49d4a0c[m[33m ([m[1;31morigin/jcf-relatorio-arquivo[m[33m, [m[1;32mjcf-relatorio-arquivo[m[33m)[m
+Author: Jcarlosff <carlossantos.ff@gmail.com>
+Date:   Wed Oct 30 17:54:23 2019 -0300
+
+    Modificando a classe cliente controler e adicionando clientes.html
+
+[33mcommit 29b29e26462e1485f447d20b1872e6843da5fc51[m
+Author: Jcarlosff <carlossantos.ff@gmail.com>
+Date:   Wed Oct 30 17:52:42 2019 -0300
+
+    adicionando Cliente controller e cliente html
+
+[33mcommit b13e7246cbcc75ef0a345fdcd8fd626a7958e80b[m
+Merge: 10650e7 59a9e05
+Author: Jcarlosff <carlossantos.ff@gmail.com>
+Date:   Sun Oct 27 22:24:07 2019 -0300
+
+    adicionando botao
+
+[33mcommit 10650e74aa5ca23bb32dab08b527dab81b0f9e2b[m
+Author: Jcarlosff <carlossantos.ff@gmail.com>
+Date:   Sun Oct 27 22:21:15 2019 -0300
+
+    adicionando botao
+
+[33mcommit 59a9e05f061ff8ab505b962c813a11b667a532e2[m
+Author: neyrpg <neyrpg@gmail.com>
+Date:   Sun Oct 27 22:17:32 2019 -0300
+
+    criacao de relatorio
+
+[33mcommit 11c9c4494f4825674f0cfca28beb7c4f88cf6404[m
+Author: neyrpg <neyrpg@gmail.com>
+Date:   Sun Oct 27 20:57:09 2019 -0300
+
+    Removendo dependencias não usadas
+
+[33mcommit 7147f78c3afbe68e5a3991c4b7ca81e913dde88a[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: carlos <carlos@carlos-1>
+Date:   Sun Oct 27 20:30:40 2019 -0300
+
+    commit restante
+
+[33mcommit 03c57b84e8f56e4c652be7fb2ebb347ab4761a0d[m
+Author: carlos <carlos@carlos-1>
+Date:   Sun Oct 27 20:30:07 2019 -0300
+
+    commit inicial do projeto
+
+[33mcommit 25b9a93083c892094f352f307732c3b1ee44e4b7[m
+Author: Jcarlosff <45564472+Jcarlosff@users.noreply.github.com>
+Date:   Sun Oct 27 20:21:04 2019 -0300
+
+    Initial commit
