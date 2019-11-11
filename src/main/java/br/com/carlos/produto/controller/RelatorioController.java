@@ -30,10 +30,10 @@ public class RelatorioController {
 		 */
 
 		List<Venda> vendasList = vender.findAll();
-
-		escreverArquivoDisco(vendasList);
-
-		lerArquivoDisco(vendasList);
+//
+//		escreverArquivoDisco(vendasList);
+//
+//		lerArquivoDisco(vendasList);
 
 		return vendasList;
 

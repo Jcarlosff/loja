@@ -22,7 +22,7 @@ public class Venda extends Object {
 	private int codigoProduto;
 
 	@NotNull
-	private int codigoCliente;
+	private long codigoCliente;
 
 	public Long getId() {
 		return id;
@@ -40,11 +40,11 @@ public class Venda extends Object {
 		this.codigoProduto = codigoProduto;
 	}
 
-	public int getCodigoCliente() {
+	public long getCodigoCliente() {
 		return codigoCliente;
 	}
 
-	public void setCodigoCliente(int codigoCliente) {
+	public void setCodigoCliente(long codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 
