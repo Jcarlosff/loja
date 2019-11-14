@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.carlos.produto.model.Cliente;
+import br.com.carlos.produto.model.Produto;
 import br.com.carlos.produto.model.Venda;
 import br.com.carlos.produto.repository.ClienteRepository;
 import br.com.carlos.produto.repository.ProdutoRepository;
@@ -48,6 +49,16 @@ public class VendaController {
 	@ModelAttribute("clientes1")
 	public List<Cliente> getClientes1() {
 		return clienter.findAll();
+	}
+	
+	@ModelAttribute("produtos1")
+	public List<Produto> getProdutos1() {
+		return produtor.findAll();
+	}
+	
+	@ModelAttribute("valorProduto")
+	public List<Produto> getvalorProduto() {
+		return produtor.findAll();
 	}
 	
 	

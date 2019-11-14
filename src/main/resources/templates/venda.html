@@ -42,8 +42,8 @@
 					</div>
 
 
-					<select th:field="*{codigoCliente}">
-						<option th:each="cli : ${clientes1}" th:value="${cli.id}"
+					<select th:field="*{codigoCliente}" class="col-md-7 table-responsive">
+						<option th:each="cli : ${clientes1}" th:value="${cli.cpf}"
 							th:text="${cli.nome}"></option>
 					</select>
 				</div>
@@ -52,13 +52,24 @@
 					<div class="input-group-prepend">
 						<label class="input-group-text" for="inputGroupSelect01">Produto</label>
 					</div>
-					<select class="custom-select" id="inputGroupSelect01">
-						<option selected=" ">Adicionar</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
+					<select th:field="*{codigoProduto}" class="col-md-7 table-responsive">
+						<option th:each="prod : ${produtos1}" th:value="${prod.codigo}"
+							th:text="${prod.codigo}"></option>
 					</select>
+					
 				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text " for="inputGroupSelect01">  Valor  </label>
+					</div>
+					<select th:field="*{valorProduto}" class="col-md-7 table-responsive">
+						<option th:each="prodV : ${valorProduto}" th:value="${prodV.valorProduto}"
+							th:text="${prodV.valorProduto}"></option>
+					</select>
+					
+				</div>
+				
 
 
 				<div class="form-group">
@@ -80,13 +91,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="cliente : ${clientes}">
-						<td th:text="${cliente.nome}"></td>
-						<td th:text="${cliente.cpf}"></td>
-						<td th:text="${cliente.sexo}"></td>
-						<td th:text="${cliente.dataNascimento}"></td>
-						<td><a th:href="${'/excluicliente/' + cliente.id}">Excluir</a></td>
-						<td><a th:href="${'/editacliente/' + cliente}">Alterar</a></td>
+					<tr th:each="produto: ${produtos}">
+						<td th:text="${produto.nome}"></td>
+						<td th:text="${produto.codigo}"></td>
+						<td th:text="${produto.valorProduto}"></td>
+						
 					</tr>
 				</tbody>
 			</table>

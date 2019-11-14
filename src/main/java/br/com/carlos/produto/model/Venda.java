@@ -17,7 +17,13 @@ public class Venda extends Object {
 	@JsonIgnore
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
+	
+	private String cpf;
+	
+	@NotNull
+	private double valorProduto;
+	
 	@NotNull
 	private int codigoProduto;
 
@@ -30,6 +36,22 @@ public class Venda extends Object {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public double getValorProduto() {
+		return valorProduto;
+	}
+
+	public void setValorProduto(double valorProduto) {
+		this.valorProduto = valorProduto;
 	}
 
 	public int getCodigoProduto() {
